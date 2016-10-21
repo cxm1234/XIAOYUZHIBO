@@ -8,7 +8,7 @@
         <!--Home View Controller-->
         <scene sceneID="tuV-7C-HDy">
             <objects>
-                <viewController id="gRh-IC-tgE" customClass="HomeViewController" customModule="XIAOYUZB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gRh-IC-tgE" customClass="HomeViewController" customModule="XIAOYUZHIBO" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3ro-EE-km6"/>
                         <viewControllerLayoutGuide type="bottom" id="U1B-bG-VOa"/>
@@ -27,7 +27,7 @@
         <!--首页-->
         <scene sceneID="OQJ-IF-9rt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S6h-Eb-Xp5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S6h-Eb-Xp5" customClass="CustomNavigationController" customModule="XIAOYUZHIBO" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="btn_home_normal" selectedImage="btn_home_selected" id="Eyn-z9-RdM"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

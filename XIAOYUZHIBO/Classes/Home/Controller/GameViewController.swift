@@ -12,14 +12,10 @@ private let kEdgeMargin : CGFloat = 10
 private let kItemW : CGFloat = (kScreenW - 2*kEdgeMargin)/3
 private let kItemH : CGFloat = kItemW * 6 / 5;
 private let kHeaderViewH : CGFloat = 50
-
 private let kGameCellID = "kGameCellID"
-
 private let kHeaderViewID = "kHeaderViewID"
-
 private let kGameViewH : CGFloat = 90
-
-class GameViewController: UIViewController {
+class GameViewController: BaseViewController {
     
     fileprivate lazy var gameVM : GameViewModel = GameViewModel()
     //MARK: 懒加载属性
@@ -61,23 +57,24 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         loadData()
-        
-        
     }
 
 }
 
 //MARK:- 设置UI界面
 extension GameViewController{
-    fileprivate func setupUI(){
+    override func setupUI(){
+        
+        contentView = collectionView
+        
+        
         view.addSubview(collectionView)
-        
         collectionView.addSubview(topHeaderView)
-        
         collectionView.addSubview(gameView)
-        
         //设置collectionView的内边距
         collectionView.contentInset = UIEdgeInsets(top: kHeaderViewH+kGameViewH, left: 0, bottom: 0, right: 0)
+        
+        super.setupUI()
     }
 }
 
@@ -89,6 +86,8 @@ extension GameViewController{
             self.collectionView.reloadData()
             //展示常用游戏
             self.gameView.groups = Array(self.gameVM.games[0..<10])
+            
+            self.loadDataFinished()
         }
     }
 }

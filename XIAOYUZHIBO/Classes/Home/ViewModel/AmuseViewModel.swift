@@ -8,26 +8,14 @@
 
 import UIKit
 
-class AmuseViewModel{
-    lazy var anchorGroups : [AnchorGroup] = [AnchorGroup]()
+class AmuseViewModel : BaseViewModel{
+    
 }
 
 
 extension AmuseViewModel{
     func loadAmuseData(finishedCallback : @escaping () -> ()){
-        NetworkTools.requestData(type: .get, URLString: "http://capi.douyucdn.cn/api/v1/getHotRoom/2") { (result) in
-            //
-            guard let resultDict = result as? [String : Any] else {return}
-            guard let dataArray = resultDict["data"] as? [[String : Any]] else {return}
-            
-            //遍历数组中的字典
-            for dict in dataArray{
-                self.anchorGroups.append(AnchorGroup(dict: dict))
-            }
-            
-            
-            
-            finishedCallback()
-        }
+            loadAnchorData(isGroupData: true,URLString: "http://capi.douyucdn.cn/api/v1/getHotRoom/2", finishedCallback: finishedCallback)
     }
 }
+
